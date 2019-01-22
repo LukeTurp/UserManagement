@@ -18,6 +18,12 @@ namespace participate_registration
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowClient",
+                    builder => builder.WithOrigins(Configuration["ClientUrl"]).AllowAnyMethod());
+            });
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -32,6 +38,7 @@ namespace participate_registration
             }
 
             //app.UseHttpsRedirection();
+            app.UseCors("AllowClient");
             app.UseMvc();
         }
     }
