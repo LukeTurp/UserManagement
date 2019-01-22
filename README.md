@@ -25,3 +25,5 @@
         docker run --name usermanagement --env ASPNETCORE_ENVIRONMENT=Production -p80:80 usermanagement:latest
         ```
         - Alternatively run in Debug if debugging.
+        
+3. Production endpoint is available [here](https://register.thesandboxenv.com/register/new-user) 
